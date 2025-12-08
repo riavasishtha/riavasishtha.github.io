@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
+
+/* ----- GLOBAL STYLES ----- */
+
+body {
+    margin: 0;
+    background: #FFFFFF;
+    font-family: 'CG Times', Georgia, serif;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+a {
+    color: #4B3B88;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #6B5BA8;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 80px 100px;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;   /* ← aligns photo + heading on same line */
+}
+
+/* ----- SIDEBAR ----- */
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #A9A3D9;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 32px;
+    color: #4B3B88;
+    line-height: 1.3;
+    margin-bottom: 25px;
+    font-weight: normal;
+    text-align: center;
+}
+
+/* icon row */
+.links {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin-bottom: 15px;
+    width: fit-content;
+    border: none;
+}
+
+.icon-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #4B3B88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.icon-link:hover {
+    background: #6B5BA8;
+}
+
+.icon-link svg {
+    width: 26px;
+    height: 26px;
+    fill: white;
+}
+
+/* navigation links */
+.nav-links {
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.nav-links a {
+    display: block;
+    margin: 12px 0;
+    font-size: 20px;
+    color: #4B3B88;
+}
+
+.nav-links .current {
+    font-weight: bold;
+}
+
+/* ----- MAIN CONTENT ----- */
+
+.content {
+    flex: 1;
+    max-width: 700px;
+    padding-top: 0px;
+}
+
+.section-title {
+    color: #4B3B88;
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 450;
+}
+
+.about-blurb {
+    font-size: 20px;
+    line-height: 1.75;
+    color: #333;
+}
+
+.highlight {
+    color: #7B5BA8;
+    text-decoration: underline;
+}
+
+.research-photo {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    max-width: 260px;
+    border: 1.5px solid #4B3B88;
+    border-radius: 1px;
+}
+
+/* Footer info */
+.footer-info {
+    margin-top: 60px;
+    clear: both;
+    padding-top: 30px;
+    border-top: 1px solid #D5D5D5;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #6B7C8C;
+}
+
+/* ----- PROJECTS PAGE ----- */
+
+.intro-blurb {
+    font-size: 20px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* nice 2-column layout on wider screens */
+@media (min-width: 900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.project-card {
+    border: 1px solid #E2E2F0;
+    border-radius: 14px;
+    padding: 20px 22px;
+    text-decoration: none;
+    color: inherit;
+    background: #FAF9FF;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(75, 59, 136, 0.12);
+    border-color: #4B3B88;
+}
+
+.project-title {
+    font-size: 22px;
+    margin: 0 0 6px;
+    color: #4B3B88;
+    font-weight: 600;
+}
+
+.project-meta {
+    margin: 0 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7B7B9A;
+}
+
+.project-desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ----- PROJECTS GRID AS IMAGE TILES ----- */
+
+.intro-blurb {
+    font-size: 20px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ----- PROJECTS GRID AS SMALLER IMAGE TILES ----- */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* two columns even on medium screens */
+    gap: 18px;
+}
+
+/* three columns on wide screens if you want it really compact */
+@media (min-width: 1100px) {
+    .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.project-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: 1.5px solid #4B3B88;
+    border-radius: 0;
+    padding: 10px 10px 12px;
+    background: #FFFFFF;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.project-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(75, 59, 136, 0.14);
+    border-color: #6B5BA8;
+}
+
+.project-thumb {
+    width: 100%;
+    max-width: 180px;        /* smaller image */
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.project-tile-title {
+    font-size: 16px;         /* a bit smaller */
+    margin: 0;
+    color: #4B3B88;
+    text-align: center;
+    font-weight: 500;
+}
+
+:root {
+    /* slightly lighter, more saturated purple */
+    --accent: #5D4FD8;
+    --accent-soft: #F4F1FF;
+}
+
+/* softer page background + darker body text */
+body {
+    background: radial-gradient(circle at top left, #FDF7FF 0, #F6F7FF 45%, #FFFFFF 100%);
+    color: #222;        /* a bit darker for contrast */
+}
+
+/* make main content a bright “card” like Hector's */
+.container {
+    background: #FFFFFF;
+    border-radius: 26px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    padding: 70px 90px;
+    margin: 40px auto;
+}
+
+/* ----- WRITING PORTFOLIO ----- */
+
+.writing-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.writing-subheading {
+    font-size: 24px;
+    color: #4B3B88;
+    margin: 0 0 18px;
+}
+
+/* top stories grid */
+
+.stories-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 950px) {
+    .stories-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.story-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.story-card-link {
+    display: block;
+    position: relative;
+    height: 100%;
+    color: inherit;
+}
+
+.story-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.story-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px 16px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.1) 60%,
+        transparent
+    );
+    color: #fff;
+}
+
+.story-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.story-meta {
+    margin: 0;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.story-card:hover img {
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+/* list of all stories */
+
+.story-list {
+    border-top: 1px solid #E0E3EC;
+}
+
+.story-list-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 0;
+    border-bottom: 1px solid #E0E3EC;
+}
+
+@media (min-width: 900px) {
+    .story-list-item {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+        align-items: flex-start;
+    }
+}
+
+.story-list-image {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.story-list-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.story-list-title {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.story-list-meta {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic;
+    color: #6B7C8C;
+}
+
+.story-list-summary {
+    margin: 4px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.story-read-link {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #4B3B88;
+    font-weight: 500;
+}
+
+/* ==== LAYOUT OVERRIDES ==== */
+
+/* Pure white page with a lilac band at the very top */
+body {
+    margin: 0;
+    background: linear-gradient(
+        to bottom,
+        #F4F1FF 0,
+        #F4F1FF 52px,   /* height of the band */
+        #FFFFFF 52px,
+        #FFFFFF 100%
+    );
+    color: #222;        /* you can keep or drop this */
+}
+
+/* Back to flat layout: no big rounded "card" */
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 80px 100px;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;           /* centers the content but no white box */
+    align-items: flex-start;
+
+    background: transparent;  /* no extra white card */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Underline all writing-portfolio article links */
+.story-bullet-list a {
+    text-decoration: underline;
+}
+
+.story-bullet-list a:hover {
+    text-decoration: underline;
+}
+
+/* Top-stories cards: underline the title text */
+.story-card-link .story-title {
+    text-decoration: none;
+}
+
+.story-card-link:hover .story-title {
+    text-decoration: underline;
+}
+
+/* ===== FINAL LAYOUT / COLOR OVERRIDES ===== */
+
+:root {
+    --accent: #4B3B88;  /* dark purple you use everywhere */
+}
+
+/* Plain white page */
+body {
+    margin: 0;
+    background: #FFFFFF;   /* no gradient */
+    color: #222;
+}
+
+/* Solid dark-purple band at very top */
+.top-band {
+    width: 100%;
+    height: 56px;          /* adjust height if you want */
+    background: var(--accent);
+}
+
+
+/* Dark purple borders for small elements too */
+.profile-img {
+    border-color: var(--accent);
+}
+
+.project-tile {
+    border-color: var(--accent);
+}
+
+/* Keep story overlay simple (no gradient) */
+.story-overlay {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* solid white page, no gradients */
+body {
+    background: #FFFFFF;
+    position: relative;  /* so the band can be positioned */
+}
+
+/* simple dark purple band across the top */
+body::before {
+    content: "";
+    position: absolute;   /* stays at the top when you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;      /* change this number to make the band taller/shorter */
+    background: #4B3B88;  /* your dark purple */
+    z-index: -1;       /* sits behind all your content */
+}
+
+
+/* Reading page layout */
+
+.reading-section {
+    margin-top: 28px;
+}
+
+/* the card for "currently reading" so it stands out */
+.current-reading {
+    border: 1.5px solid #4B3B88;
+    border-radius: 30px;
+    padding: 18px 20px 20px;
+    background: #FFFFFF;
+}
+
+.current-reading-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #4B3B88;
+    margin-bottom: 10px;
+}
+
+/* shared book layout: cover left, notes right */
+.book-entry {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.book-cover img {
+    max-width: 150px;
+    display: block;
+    border: 1px solid #E2E2F0;
+}
+
+.book-notes {
+    flex: 1;
+}
+
+.book-title {
+    margin: 0 0 6px;
+    font-size: 20px;
+    color: #4B3B88;
+}
+
+.book-author {
+    font-weight: normal;
+    color: #555;
+    font-size: 18px;
+}
+
+.reading-subheading {
+    font-size: 24px;
+    margin: 0 0 14px;
+    color: #4B3B88;
+}
+
+/* tiny hover tooltip for "reading" */
+
+.reading-tooltip {
+    position: relative;
+    cursor: default;
+}
+
+.reading-tooltip::after {
+    content: attr(data-current);
+    position: absolute;
+    bottom: 130%;              /* sits above the word */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4B3B88;
+    color: #FFFFFF;
+    padding: 4px 10px;
+    border-radius: 1px;
+    font-size: 12px;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+}
+
+.reading-tooltip:hover::after {
+    opacity: 1;
+}
+
+.buzz-carousel {
+    position: relative;
+    max-width: 500px;       /* adjust as you like */
+    margin: 0 auto 2rem;    /* center + space below */
+}
+
+.buzz-carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;     /* optional: rounded corners */
+}
+
+/* Arrow buttons */
+.buzz-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border-radius: 999px;
+}
+
+.buzz-prev {
+    left: 8px;
+}
+
+.buzz-next {
+    right: 8px;
+}
+
+.buzz-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Buzz gallery: four equal small rectangles */
+
+.buzz-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4 x 1 row on big screens */
+    gap: 12px;
+    margin: 20px 0;
+    max-width: 700px; /* optional, keeps it from getting huge */
+}
+
+.buzz-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;      /* same shape for all */
+    object-fit: cover;        /* crop to fill the box */
+    border: 1px solid #E2E2F0;
+}
+
+/* On smaller screens, switch to 2 x 2 */
+
+@media (max-width: 900px) {
+    .buzz-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------- Project detail layouts ---------- */
+
+.project-tagline {
+    font-size: 15px;
+    color: #6B7C8C;
+    margin-top: -6px;
+    margin-bottom: 22px;
+}
+
+.project-detail {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.project-text {
+    flex: 1.1;
+}
+
+.project-media {
+    flex: 1;
+}
+
+/* stack on mobile */
+@media (max-width: 900px) {
+    .project-detail {
+        flex-direction: column;
+    }
+}
+
+/* button-style link */
+.project-links {
+    margin-top: 18px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 1px;
+    border: 1px solid #4B3B88;
+    font-size: 14px;
+    text-decoration: none;
+    color: #4B3B88;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.button-link:hover {
+    background: #4B3B88;
+    color: #FFFFFF;
+}
+
+/* ---------- Buzz gallery thumbnails ---------- */
+
+.buzz-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* 2x2 by default */
+    gap: 10px;
+}
+
+/* 4 small rectangles in one row on wider screens */
+@media (min-width: 900px) {
+    .buzz-gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4x1 */
+    }
+}
+
+.buzz-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;         /* consistent rectangle shape */
+    object-fit: cover;           /* crop to fill */
+    border-radius: 10px;
+    border: 1px solid #E2E2F0;
+}
+
+/* project layout */
+
+.project-detail {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.project-text {
+    flex: 0 0 55%;
+    max-width: 500px;
+}
+
+.project-media {
+    flex: 1;
+}
+
+/* buzz gallery: bigger 2x2 grid */
+
+.buzz-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr)); /* 2 x 2 */
+    gap: 12px;
+}
+
+.buzz-image {
+    width:100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 1px;
+    border: 2px solid #4B3B88;
+}
+
