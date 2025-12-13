@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ria Vasishtha — About</title>
+    <title>Ria Vasishtha — Crime mapping tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+
+        <!-- SIDEBAR (same as other pages) -->
         <aside class="sidebar">
             <img src="headshot.png" class="profile-img" alt="Profile photo">
             <h1 class="name">Ria Vasishtha</h1>
@@ -31,37 +33,35 @@
             </div>
 
             <nav class="nav-links">
-    <a class="current" href="index.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="writing-portfolio.html">Writing</a>
-</nav>
-
-
+                <a href="index.html">About</a>
+                <a class="current" href="projects.html">Projects</a>
+                <a href="writing-portfolio.html">Writing</a>
+            </nav>
         </aside>
 
-        <main class="content">
-            <h2 class="section-title">Hi!</h2>
-            <p class="about-blurb">
-I'm Ria, a junior at <a href="https://barnard.edu/" class="highlight">Barnard College</a> studying Applied Mathematics and Economics.
-<p class="about-blurb">
-I'm interested in creating evidence-based tools that help people make better decisions at scale by translating data into clear, actionable insights.</p>
-<p class="about-blurb">
-    Outside of academics, I enjoy very, very 
-    <a href="https://www.strava.com/athletes/160363954?utm_source=ios_share&utm_medium=social&share_sig=5507B1F61764902572&_branch_match_id=1525157412405587431&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXLy4pSixL1EssKNDLyczL1i8rcTFyz%2FOwCIhMsq8rSk1LLSrKzEuPTyrKLy9OLbJ1zijKz00FAH8j1p09AAAA" 
-        target="_blank" class="highlight">long walks</a>, 
- <a class="highlight reading-tooltip"
-       data-current="Currently reading: The Woman Reader (Belinda Jack)">reading</a>, 
-    and baking.
-</p>
+<main class="content">
+    <h2 class="section-title">Neighborhood crime mapping tool</h2>
+
+    <section class="project-detail">
+        <div class="project-text">
 
             <p class="about-blurb">
-                If you find me or my work interesting, you should <a href="mailto:rv2529@barnard.edu" class="highlight">reach out</a>.
+                Worked on a small web tool that loaded incident data, mapped hot spots over time, and surfaced simple block-level risk scores that updated as you changed filters. I'm in early talks with a nonprofit about adapting it for crime prevention work.
             </p>
-            
-            <div class="footer-info">
-                <span>New York City, NY</span>
-            </div>
-        </main>
+        </div>
+
+        <div class="project-media">
+            <img src="images/arcgis2.png"
+                 alt="Code for a browser-based crime mapping tool"
+                 class="story-list-image"
+                 style="border: 1.5px solid #4B3B88; border-radius: 6px;">
+        </div>
+    </section>
+
+    <div class="footer-info">
+        <span>New York City, NY</span>
     </div>
+</main>
+
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Ria Vasishtha — buzz @ Columbia</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
 
@@ -42,39 +43,48 @@
 
               <!-- MAIN CONTENT -->
         <main class="content">
-            <h2 class="section-title">buzz @ Columbia</h2>
+            <h2 class="section-title">buzz @ columbia</h2>
 
             <section class="project-detail">
                 <div class="project-text">
                     <p class="about-blurb">
-                        A campus events platform that makes flyers accessible to more students and turns something you can’t easily track into usable data on reach and engagement. 
+                        A campus events platform (<a href="https://buzz-on-campus.vercel.app"
+           target="_blank" rel="noopener noreferrer" class="highlight">Live Site</a>) that makes flyers accessible to more students and turns something you can’t easily track into usable data on reach and engagement. 
                     </p>
 
-                    <div class="project-links">
+                    <!-- <div class="project-links">
                         <a href="https://buzz-on-campus.vercel.app"
                            target="_blank"
                            class="button-link">
                             Live site
                         </a>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="project-media">
-                    <div class="buzz-gallery">
-                        <img src="images/buzz1.png" alt="Buzz screenshot 1" class="buzz-image">
-                        <img src="images/buzz2.png" alt="Buzz screenshot 2" class="buzz-image">
-                        <img src="images/buzz3.png" alt="Buzz screenshot 3" class="buzz-image">
-                        <img src="images/buzz4.png" alt="Buzz screenshot 4" class="buzz-image">
-                    </div>
-                </div>
+
+                <!-- CAROUSEL -->
+<div class="project-media">
+  <div class="buzz-carousel">
+    <button class="buzz-btn buzz-prev">&#8249;</button>
+
+    <img
+      id="buzz-slide"
+      src="images/buzz1.png"
+      alt="Buzz screenshot"
+    >
+
+    <button class="buzz-btn buzz-next">&#8250;</button>
+  </div>
+
+  <!-- caption goes under the carousel -->
+  <p id="buzz-caption" class="buzz-caption"></p>
+</div>
+
             </section>
-
-            <div class="footer-info">
-                <span>New York City, NY</span>
-            </div>
         </main>
+    </div>
 
-
-
+    <!-- ✅ ONLY script reference (nothing in head) -->
+    <script src="script.js"></script>
 </body>
 </html>

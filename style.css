@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap');
 
 /* ----- GLOBAL STYLES ----- */
 
 body {
     margin: 0;
     background: #FFFFFF;
-    font-family: 'CG Times', Georgia, serif;
+  font-family: 'Crimson Pro', serif;
     color: #333;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -244,7 +247,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    border: 1.5px solid #4B3B88;
+    border: 2.5px solid #4B3B88;
     border-radius: 0;
     padding: 10px 10px 12px;
     background: #FFFFFF;
@@ -366,7 +369,7 @@ body {
     margin: 0 0 6px;
     font-size: 16px;
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .story-meta {
@@ -448,7 +451,7 @@ body {
     background: linear-gradient(
         to bottom,
         #F4F1FF 0,
-        #F4F1FF 52px,   /* height of the band */
+        #F4F1FF 20px,   /* height of the band */
         #FFFFFF 52px,
         #FFFFFF 100%
     );
@@ -511,7 +514,8 @@ body {
 
 /* Dark purple borders for small elements too */
 .profile-img {
-    border-color: var(--accent);
+    border-color: #FFFFFF;
+    border-radius: none;
 }
 
 .project-tile {
@@ -536,7 +540,7 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 56px;      /* change this number to make the band taller/shorter */
+    height: 25px;      /* change this number to make the band taller/shorter */
     background: #4B3B88;  /* your dark purple */
     z-index: -1;       /* sits behind all your content */
 }
@@ -638,7 +642,7 @@ body::before {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;     /* optional: rounded corners */
+    border-radius: 1px;     /* optional: rounded corners */
 }
 
 /* Arrow buttons */
@@ -802,3 +806,140 @@ body::before {
     border: 2px solid #4B3B88;
 }
 
+
+.buzz-carousel {
+    position: relative;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.buzz-carousel img {
+    width: 100%;
+    display: block;
+    border: 2px solid #4B3B88;
+}
+
+.buzz-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+.buzz-prev { left: 8px; }
+.buzz-next { right: 8px; }
+
+.buzz-caption{
+  margin-top: 12px;
+  text-align: center;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* make sure the arrows can sit outside the image */
+.project-media,
+.buzz-carousel {
+  overflow: visible;
+}
+
+.buzz-carousel{
+  position: relative;
+  display: inline-block; /* keeps arrows anchored to the image width */
+}
+
+/* the image */
+#buzz-slide{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* arrow buttons: purple, no bubble */
+.buzz-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  padding: 0;
+  line-height: 1;
+  font-size: 48px;       /* tweak */
+  color: #4B3B88;        /* your purple */
+  cursor: pointer;
+}
+
+/* place arrows OUTSIDE the image */
+.buzz-prev{ left: -clamp(28px, 4vw, 56px); }
+.buzz-next{ right: -clamp(28px, 4vw, 56px); }
+
+.buzz-btn:hover{ opacity: 0.8; }
+
+.buzz-btn:focus-visible{
+  outline: 2px solid #4B3B88;
+  outline-offset: 6px;
+}
+
+/* === BUZZ CAROUSEL: arrows OUTSIDE the image === */
+.buzz-carousel{
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.buzz-carousel img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid #4B3B88;
+}
+
+/* override the older absolute-position button styles */
+.buzz-btn{
+  position: static !important;
+  transform: none !important;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  padding: 0 6px;
+  line-height: 1;
+  font-size: clamp(34px, 4vw, 54px);
+  color: #4B3B88;
+  cursor: pointer;
+}
+
+.buzz-btn:hover{ opacity: 0.8; }
+
+.buzz-btn:focus-visible{
+  outline: 2px solid #4B3B88;
+  outline-offset: 6px;
+}
+/* give the media column more space vs the text */
+.project-text { flex: 0 0 45%; max-width: 520px; }
+.project-media { flex: 0 0 55%; }
+
+/* make the carousel/image itself bigger */
+.buzz-carousel{
+  max-width: 680px;   /* <-- increase (ex: 720px, 800px) */
+}
+
+.buzz-carousel img{
+  width: 100%;
+}
