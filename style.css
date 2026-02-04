@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
 
 /* ----- GLOBAL STYLES ----- */
 
 body {
     margin: 0;
     background: #FFFFFF;
-  font-family: 'Crimson Pro', serif;
+  font-family: 'crimson pro', serif;
     color: #333;
     font-size: 16px;
     line-height: 1.7;
 }
+
 
 a {
     color: #4B3B88;
@@ -49,9 +49,14 @@ a:hover {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 3px solid #A9A3D9;
-    object-fit: cover;
+    border: 1px solid var(--accent);
+    object-fit: COVER;
     margin-bottom: 5px;
+      width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+
 }
 
 .name {
@@ -161,63 +166,6 @@ a:hover {
 
 /* ----- PROJECTS PAGE ----- */
 
-.intro-blurb {
-    font-size: 20px;
-    line-height: 1.75;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
-
-/* nice 2-column layout on wider screens */
-@media (min-width: 900px) {
-    .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-.project-card {
-    border: 1px solid #E2E2F0;
-    border-radius: 14px;
-    padding: 20px 22px;
-    text-decoration: none;
-    color: inherit;
-    background: #FAF9FF;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(75, 59, 136, 0.12);
-    border-color: #4B3B88;
-}
-
-.project-title {
-    font-size: 22px;
-    margin: 0 0 6px;
-    color: #4B3B88;
-    font-weight: 600;
-}
-
-.project-meta {
-    margin: 0 0 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #7B7B9A;
-}
-
-.project-desc {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
 /* ----- PROJECTS GRID AS IMAGE TILES ----- */
 
 .intro-blurb {
@@ -229,59 +177,6 @@ a:hover {
 
 /* ----- PROJECTS GRID AS SMALLER IMAGE TILES ----- */
 
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* two columns even on medium screens */
-    gap: 18px;
-}
-
-/* three columns on wide screens if you want it really compact */
-@media (min-width: 1100px) {
-    .project-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-.project-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    border: 2.5px solid #4B3B88;
-    border-radius: 0;
-    padding: 10px 10px 12px;
-    background: #FFFFFF;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-}
-
-.project-tile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(75, 59, 136, 0.14);
-    border-color: #6B5BA8;
-}
-
-.project-thumb {
-    width: 100%;
-    max-width: 180px;        /* smaller image */
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.project-tile-title {
-    font-size: 16px;         /* a bit smaller */
-    margin: 0;
-    color: #4B3B88;
-    text-align: center;
-    font-weight: 500;
-}
-
-:root {
-    /* slightly lighter, more saturated purple */
-    --accent: #5D4FD8;
-    --accent-soft: #F4F1FF;
-}
 
 /* softer page background + darker body text */
 body {
@@ -328,7 +223,7 @@ body {
 .story-card {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0px;
     background: #000;
 }
 
@@ -475,7 +370,7 @@ body {
 
 /* Underline all writing-portfolio article links */
 .story-bullet-list a {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .story-bullet-list a:hover {
@@ -510,12 +405,28 @@ body {
     height: 56px;          /* adjust height if you want */
     background: var(--accent);
 }
+.award-story {
+    margin-bottom: 0.9rem;
+}
+
+.award-badge {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 8px;
+}
 
 
 /* Dark purple borders for small elements too */
 .profile-img {
-    border-color: #FFFFFF;
-    border-radius: none;
+    /* border-color:var(--accent); */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .project-tile {
@@ -697,57 +608,6 @@ body::before {
     }
 }
 
-/* ---------- Project detail layouts ---------- */
-
-.project-tagline {
-    font-size: 15px;
-    color: #6B7C8C;
-    margin-top: -6px;
-    margin-bottom: 22px;
-}
-
-.project-detail {
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    margin-bottom: 32px;
-}
-
-.project-text {
-    flex: 1.1;
-}
-
-.project-media {
-    flex: 1;
-}
-
-/* stack on mobile */
-@media (max-width: 900px) {
-    .project-detail {
-        flex-direction: column;
-    }
-}
-
-/* button-style link */
-.project-links {
-    margin-top: 18px;
-}
-
-.button-link {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 1px;
-    border: 1px solid #4B3B88;
-    font-size: 14px;
-    text-decoration: none;
-    color: #4B3B88;
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
-.button-link:hover {
-    background: #4B3B88;
-    color: #FFFFFF;
-}
 
 /* ---------- Buzz gallery thumbnails ---------- */
 
@@ -942,4 +802,229 @@ body::before {
 
 .buzz-carousel img{
   width: 100%;
+}
+
+
+.projects-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0;                 /* rows separated by dividers, not boxes */
+  margin-top: 18px;
+}
+
+/* Each project is a clean row */
+.project{
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+
+  padding: 22px 0;
+  border: none !important;
+  border-bottom: 1px solid #E6E6E6;
+  background: transparent !important;
+
+}
+
+/* Thumbnail area */
+.project-thumbwrap{
+  width: 220px;
+}
+
+.project-thumb-img{
+  width: 100%;
+  height: 135px;          /* nice “card” thumbnail height */
+  object-fit: cover;
+  display: block;
+
+  border-radius: 0px;
+  border: 1px solid #E6E6E6;
+  background: #F6F6F8;    /* shows if image missing */
+}
+
+/* Right side text */
+.project-name{
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--accent);         /* reference uses near-black titles */
+  font-weight: 650;
+}
+
+.project-preview{
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;            /* reference uses softer description */
+  max-width: 62ch;
+}
+
+/* Pills row */
+.project-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Default pill (if you don't add variants) */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  background: #4B3B88;
+  color: #fff;
+  border: 0;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.pill:hover{
+  opacity: 0.9;
+}
+
+/* Optional: Steven-like colored pills */
+.pill.blue{ background:#1f6feb; }
+.pill.orange{ background:#d97706; }
+.pill.green{ background:#16a34a; }
+
+/* “More details” should look like plain link text */
+.project-more summary{
+  list-style: none !important;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4B3B88;
+  cursor: pointer;
+}
+
+.project-more summary::-webkit-details-marker{
+  display: none !important;
+}
+
+.project-more summary:hover{
+  text-decoration: underline;
+}
+
+.project-details{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #EEE;
+}
+
+.project-bullets{
+  margin: 0;
+  padding-left: 18px;
+  color: #444;
+  line-height: 1.65;
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 900px){
+  .project{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .project-thumbwrap{
+    width: 100%;
+  }
+  .project-thumb-img{
+    height: 180px;
+  }
+}
+
+/* ===== Projects: soft cards + hover lift (Steven-like) ===== */
+
+.projects-list{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;              /* space between cards */
+  margin-top: 18px;
+}
+
+.project{
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+
+  padding: 20px 22px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 0px;
+  background: #fff;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);   /* soft base shadow */
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.project:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.10);   /* stronger hover shadow */
+  border-color: rgba(0,0,0,0.14);
+}
+
+.project-thumb-img{
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+
+  border-radius: 0px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #f3f3f6;
+}
+
+.project-name{
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 1.15;
+  color: var(--accent);
+  font-weight: 650;
+}
+
+.project-preview{
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 64ch;
+}
+
+/* Make your purple pills feel a bit more “modern” */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  background: #4B3B88;
+  color: #fff;
+  border: 0;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+.pill:hover{
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Mobile stack */
+@media (max-width: 900px){
+  .project{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .project-thumb-img{
+    height: 190px;
+  }
 }
