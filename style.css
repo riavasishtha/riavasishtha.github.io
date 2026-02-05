@@ -223,7 +223,7 @@ body {
 .story-card {
     position: relative;
     overflow: hidden;
-    border-radius: 0px;
+    border-radius: 10px;
     background: #000;
 }
 
@@ -1028,3 +1028,16 @@ body::before {
     height: 190px;
   }
 }
+
+/* Underline the "All Stories" bulleted list */
+.story-bullet-list li a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Optional: Change the underline color on hover for a subtle effect */
+.story-bullet-list li a:hover {
+    text-decoration-thickness: 3px;
+    color: #6B5BA8; /* Your lighter purple hover color */
+}
+
