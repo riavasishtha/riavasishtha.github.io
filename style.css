@@ -49,7 +49,7 @@ a:hover {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 1px solid var(--accent);
+    border: 0px solid var(--accent);
     object-fit: COVER;
     margin-bottom: 5px;
       width: 200px;
