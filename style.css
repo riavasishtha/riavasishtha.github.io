@@ -1032,12 +1032,12 @@ body::before {
 /* Underline the "All Stories" bulleted list */
 .story-bullet-list li a {
     text-decoration: underline;
-    text-underline-offset: 1px;
+    text-underline-offset: 0.5px;
 }
 
 /* Optional: Change the underline color on hover for a subtle effect */
 .story-bullet-list li a:hover {
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
     color: #6B5BA8; /* Your lighter purple hover color */
 }
 
