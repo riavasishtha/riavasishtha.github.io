@@ -1032,7 +1032,7 @@ body::before {
 /* Underline the "All Stories" bulleted list */
 .story-bullet-list li a {
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 1px;
 }
 
 /* Optional: Change the underline color on hover for a subtle effect */
