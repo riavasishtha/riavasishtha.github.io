@@ -1,1043 +1,552 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
-/* ----- GLOBAL STYLES ----- */
-
-body {
-    margin: 0;
-    background: #FFFFFF;
-  font-family: 'crimson pro', serif;
-    color: #333;
-    font-size: 16px;
-    line-height: 1.7;
+:root {
+  --accent: #4B3B88;
+  --accent-soft: #6B5BA8;
+  --text: #222222;
+  --muted: #666666;
+  --line: #E7E3F2;
+  --bg: #FFFFFF;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Crimson Pro', serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+body::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 22px;
+  background: var(--accent);
+}
 
 a {
-    color: #4B3B88;
-    text-decoration: none;
-    transition: color 0.2s;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #6B5BA8;
+  color: var(--accent-soft);
 }
 
 .container {
-    display: flex;
-    min-height: 100vh;
-    padding: 80px 100px;
-    gap: 120px;
-    max-width: 1400px;
-    margin: 0 auto;
-    align-items: flex-start;   /* ← aligns photo + heading on same line */
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 48px 72px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
 }
-
-/* ----- SIDEBAR ----- */
 
 .sidebar {
-    width: 280px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: sticky;
+  top: 40px;
 }
 
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 0px solid var(--accent);
-    object-fit: COVER;
-    margin-bottom: 5px;
-      width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-
+.no-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .name {
-    font-size: 32px;
-    color: #4B3B88;
-    line-height: 1.3;
-    margin-bottom: 25px;
-    font-weight: normal;
-    text-align: center;
+  margin: 0 0 18px;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 500;
+  color: var(--accent);
 }
 
-/* icon row */
 .links {
-    display: flex;
-    gap: 16px;
-    padding: 0;
-    margin-bottom: 15px;
-    width: fit-content;
-    border: none;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .icon-link {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #4B3B88;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-link:hover {
-    background: #6B5BA8;
+  background: var(--accent-soft);
 }
 
 .icon-link svg {
-    width: 26px;
-    height: 26px;
-    fill: white;
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 
-/* navigation links */
 .nav-links {
-    margin-top: 5px;
-    text-align: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
 }
 
 .nav-links a {
-    display: block;
-    margin: 12px 0;
-    font-size: 20px;
-    color: #4B3B88;
+  font-size: 1.1rem;
+  color: var(--accent);
 }
 
 .nav-links .current {
-    font-weight: bold;
+  font-weight: 700;
 }
 
-/* ----- MAIN CONTENT ----- */
-
 .content {
-    flex: 1;
-    max-width: 700px;
-    padding-top: 0px;
+  max-width: 760px;
 }
 
 .section-title {
-    color: #4B3B88;
-    font-size: 42px;
-    margin-bottom: 20px;
-    font-weight: 450;
+  margin: 0 0 18px;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--accent);
 }
 
+.intro-blurb,
 .about-blurb {
-    font-size: 20px;
-    line-height: 1.75;
-    color: #333;
+  margin: 0 0 28px;
+  font-size: 1.18rem;
+  color: var(--text);
 }
 
 .highlight {
-    color: #7B5BA8;
-    text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-
-.research-photo {
-    float: right;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    max-width: 260px;
-    border: 1.5px solid #4B3B88;
-    border-radius: 1px;
-}
-
-/* Footer info */
-.footer-info {
-    margin-top: 60px;
-    clear: both;
-    padding-top: 30px;
-    border-top: 1px solid #D5D5D5;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    color: #6B7C8C;
-}
-
-/* ----- PROJECTS PAGE ----- */
-
-/* ----- PROJECTS GRID AS IMAGE TILES ----- */
-
-.intro-blurb {
-    font-size: 20px;
-    line-height: 1.75;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-/* ----- PROJECTS GRID AS SMALLER IMAGE TILES ----- */
-
-
-/* softer page background + darker body text */
-body {
-    background: radial-gradient(circle at top left, #FDF7FF 0, #F6F7FF 45%, #FFFFFF 100%);
-    color: #222;        /* a bit darker for contrast */
-}
-
-/* make main content a bright “card” like Hector's */
-.container {
-    background: #FFFFFF;
-    border-radius: 26px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-    padding: 70px 90px;
-    margin: 40px auto;
-}
-
-/* ----- WRITING PORTFOLIO ----- */
 
 .writing-section {
-    margin-top: 40px;
-    margin-bottom: 40px;
+  margin-top: 42px;
 }
 
 .writing-subheading {
-    font-size: 24px;
-    color: #4B3B88;
-    margin: 0 0 18px;
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
 }
 
-/* top stories grid */
-
 .stories-grid {
-    display: grid;
-    gap: 18px;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 @media (min-width: 950px) {
-    .stories-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .stories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .story-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
+  overflow: hidden;
+  background: #000;
 }
 
 .story-card-link {
-    display: block;
-    position: relative;
-    height: 100%;
-    color: inherit;
+  display: block;
+  position: relative;
+  min-height: 220px;
 }
 
 .story-card img {
-    width: 100%;
-    height: 100%;
-    min-height: 180px;
-    object-fit: cover;
-    display: block;
-    opacity: 0.9;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.story-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 14px 16px;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.1) 60%,
-        transparent
-    );
-    color: #fff;
-}
-
-.story-title {
-    margin: 0 0 6px;
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 500;
-}
-
-.story-meta {
-    margin: 0;
-    font-size: 12px;
-    font-style: italic;
-    opacity: 0.85;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.92;
 }
 
 .story-card:hover img {
-    transform: scale(1.03);
-    opacity: 1;
+  transform: scale(1.02);
+  opacity: 1;
 }
 
-/* list of all stories */
-
-.story-list {
-    border-top: 1px solid #E0E3EC;
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.16) 60%, transparent);
+  color: white;
 }
 
-.story-list-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 24px 0;
-    border-bottom: 1px solid #E0E3EC;
-}
-
-@media (min-width: 900px) {
-    .story-list-item {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
-        align-items: flex-start;
-    }
-}
-
-.story-list-image {
-    width: 100%;
-    border-radius: 6px;
-    object-fit: cover;
-}
-
-.story-list-text {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.story-list-title {
-    margin: 0;
-    font-size: 18px;
-    color: #222;
-}
-
-.story-list-meta {
-    margin: 0;
-    font-size: 14px;
-    font-style: italic;
-    color: #6B7C8C;
-}
-
-.story-list-summary {
-    margin: 4px 0 0;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-.story-read-link {
-    margin-top: 4px;
-    font-size: 14px;
-    color: #4B3B88;
-    font-weight: 500;
-}
-
-/* ==== LAYOUT OVERRIDES ==== */
-
-/* Pure white page with a lilac band at the very top */
-body {
-    margin: 0;
-    background: linear-gradient(
-        to bottom,
-        #F4F1FF 0,
-        #F4F1FF 20px,   /* height of the band */
-        #FFFFFF 52px,
-        #FFFFFF 100%
-    );
-    color: #222;        /* you can keep or drop this */
-}
-
-/* Back to flat layout: no big rounded "card" */
-.container {
-    display: flex;
-    min-height: 100vh;
-    padding: 80px 100px;
-    gap: 120px;
-    max-width: 1400px;
-    margin: 0 auto;           /* centers the content but no white box */
-    align-items: flex-start;
-
-    background: transparent;  /* no extra white card */
-    border-radius: 0;
-    box-shadow: none;
-}
-
-/* Underline all writing-portfolio article links */
-.story-bullet-list a {
-    /* text-decoration: underline; */
-}
-
-.story-bullet-list a:hover {
-    text-decoration: underline;
-}
-
-/* Top-stories cards: underline the title text */
-.story-card-link .story-title {
-    text-decoration: none;
+.story-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .story-card-link:hover .story-title {
-    text-decoration: underline;
-}
-
-/* ===== FINAL LAYOUT / COLOR OVERRIDES ===== */
-
-:root {
-    --accent: #4B3B88;  /* dark purple you use everywhere */
-}
-
-/* Plain white page */
-body {
-    margin: 0;
-    background: #FFFFFF;   /* no gradient */
-    color: #222;
-}
-
-/* Solid dark-purple band at very top */
-.top-band {
-    width: 100%;
-    height: 56px;          /* adjust height if you want */
-    background: var(--accent);
-}
-.award-story {
-    margin-bottom: 0.9rem;
-}
-
-.award-badge {
-    margin-top: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-    border-left: 3px solid var(--accent);
-    padding-left: 8px;
-}
-
-
-/* Dark purple borders for small elements too */
-.profile-img {
-    /* border-color:var(--accent); */
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.project-tile {
-    border-color: var(--accent);
-}
-
-/* Keep story overlay simple (no gradient) */
-.story-overlay {
-    background: rgba(0, 0, 0, 0.55);
-}
-
-/* solid white page, no gradients */
-body {
-    background: #FFFFFF;
-    position: relative;  /* so the band can be positioned */
-}
-
-/* simple dark purple band across the top */
-body::before {
-    content: "";
-    position: absolute;   /* stays at the top when you scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 25px;      /* change this number to make the band taller/shorter */
-    background: #4B3B88;  /* your dark purple */
-    z-index: -1;       /* sits behind all your content */
-}
-
-
-/* Reading page layout */
-
-.reading-section {
-    margin-top: 28px;
-}
-
-/* the card for "currently reading" so it stands out */
-.current-reading {
-    border: 1.5px solid #4B3B88;
-    border-radius: 30px;
-    padding: 18px 20px 20px;
-    background: #FFFFFF;
-}
-
-.current-reading-label {
-    font-size: 20px;
-    font-weight: 700;
-    color: #4B3B88;
-    margin-bottom: 10px;
-}
-
-/* shared book layout: cover left, notes right */
-.book-entry {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.book-cover img {
-    max-width: 150px;
-    display: block;
-    border: 1px solid #E2E2F0;
-}
-
-.book-notes {
-    flex: 1;
-}
-
-.book-title {
-    margin: 0 0 6px;
-    font-size: 20px;
-    color: #4B3B88;
-}
-
-.book-author {
-    font-weight: normal;
-    color: #555;
-    font-size: 18px;
-}
-
-.reading-subheading {
-    font-size: 24px;
-    margin: 0 0 14px;
-    color: #4B3B88;
-}
-
-/* tiny hover tooltip for "reading" */
-
-.reading-tooltip {
-    position: relative;
-    cursor: default;
-}
-
-.reading-tooltip::after {
-    content: attr(data-current);
-    position: absolute;
-    bottom: 130%;              /* sits above the word */
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4B3B88;
-    color: #FFFFFF;
-    padding: 4px 10px;
-    border-radius: 1px;
-    font-size: 12px;
-    white-space: nowrap;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s ease;
-    z-index: 10;
-}
-
-.reading-tooltip:hover::after {
-    opacity: 1;
-}
-
-.buzz-carousel {
-    position: relative;
-    max-width: 500px;       /* adjust as you like */
-    margin: 0 auto 2rem;    /* center + space below */
-}
-
-.buzz-carousel img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 1px;     /* optional: rounded corners */
-}
-
-/* Arrow buttons */
-.buzz-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    border-radius: 999px;
-}
-
-.buzz-prev {
-    left: 8px;
-}
-
-.buzz-next {
-    right: 8px;
-}
-
-.buzz-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-
-/* Buzz gallery: four equal small rectangles */
-
-.buzz-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4 x 1 row on big screens */
-    gap: 12px;
-    margin: 20px 0;
-    max-width: 700px; /* optional, keeps it from getting huge */
-}
-
-.buzz-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;      /* same shape for all */
-    object-fit: cover;        /* crop to fill the box */
-    border: 1px solid #E2E2F0;
-}
-
-/* On smaller screens, switch to 2 x 2 */
-
-@media (max-width: 900px) {
-    .buzz-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-
-/* ---------- Buzz gallery thumbnails ---------- */
-
-.buzz-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));  /* 2x2 by default */
-    gap: 10px;
-}
-
-/* 4 small rectangles in one row on wider screens */
-@media (min-width: 900px) {
-    .buzz-gallery {
-        grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4x1 */
-    }
-}
-
-.buzz-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;         /* consistent rectangle shape */
-    object-fit: cover;           /* crop to fill */
-    border-radius: 10px;
-    border: 1px solid #E2E2F0;
-}
-
-/* project layout */
-
-.project-detail {
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    margin-bottom: 32px;
-}
-
-.project-text {
-    flex: 0 0 55%;
-    max-width: 500px;
-}
-
-.project-media {
-    flex: 1;
-}
-
-/* buzz gallery: bigger 2x2 grid */
-
-.buzz-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 1fr)); /* 2 x 2 */
-    gap: 12px;
-}
-
-.buzz-image {
-    width:100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 1px;
-    border: 2px solid #4B3B88;
-}
-
-
-.buzz-carousel {
-    position: relative;
-    max-width: 520px;
-    margin: 0 auto;
-}
-
-.buzz-carousel img {
-    width: 100%;
-    display: block;
-    border: 2px solid #4B3B88;
-}
-
-.buzz-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 6px 12px;
-}
-
-.buzz-prev { left: 8px; }
-.buzz-next { right: 8px; }
-
-.buzz-caption{
-  margin-top: 12px;
-  text-align: center;
-  line-height: 1.4;
-  font-size: 0.95rem;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* make sure the arrows can sit outside the image */
-.project-media,
-.buzz-carousel {
-  overflow: visible;
-}
-
-.buzz-carousel{
-  position: relative;
-  display: inline-block; /* keeps arrows anchored to the image width */
-}
-
-/* the image */
-#buzz-slide{
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* arrow buttons: purple, no bubble */
-.buzz-btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-
-  padding: 0;
-  line-height: 1;
-  font-size: 48px;       /* tweak */
-  color: #4B3B88;        /* your purple */
-  cursor: pointer;
-}
-
-/* place arrows OUTSIDE the image */
-.buzz-prev{ left: -clamp(28px, 4vw, 56px); }
-.buzz-next{ right: -clamp(28px, 4vw, 56px); }
-
-.buzz-btn:hover{ opacity: 0.8; }
-
-.buzz-btn:focus-visible{
-  outline: 2px solid #4B3B88;
-  outline-offset: 6px;
-}
-
-/* === BUZZ CAROUSEL: arrows OUTSIDE the image === */
-.buzz-carousel{
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 14px;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.buzz-carousel img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 2px solid #4B3B88;
-}
-
-/* override the older absolute-position button styles */
-.buzz-btn{
-  position: static !important;
-  transform: none !important;
-
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-
-  padding: 0 6px;
-  line-height: 1;
-  font-size: clamp(34px, 4vw, 54px);
-  color: #4B3B88;
-  cursor: pointer;
-}
-
-.buzz-btn:hover{ opacity: 0.8; }
-
-.buzz-btn:focus-visible{
-  outline: 2px solid #4B3B88;
-  outline-offset: 6px;
-}
-/* give the media column more space vs the text */
-.project-text { flex: 0 0 45%; max-width: 520px; }
-.project-media { flex: 0 0 55%; }
-
-/* make the carousel/image itself bigger */
-.buzz-carousel{
-  max-width: 680px;   /* <-- increase (ex: 720px, 800px) */
-}
-
-.buzz-carousel img{
-  width: 100%;
-}
-
-
-.projects-list{
-  display: flex;
-  flex-direction: column;
-  gap: 0;                 /* rows separated by dividers, not boxes */
-  margin-top: 18px;
-}
-
-/* Each project is a clean row */
-.project{
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 24px;
-
-  padding: 22px 0;
-  border: none !important;
-  border-bottom: 1px solid #E6E6E6;
-  background: transparent !important;
-
-}
-
-/* Thumbnail area */
-.project-thumbwrap{
-  width: 220px;
-}
-
-.project-thumb-img{
-  width: 100%;
-  height: 135px;          /* nice “card” thumbnail height */
-  object-fit: cover;
-  display: block;
-
-  border-radius: 0px;
-  border: 1px solid #E6E6E6;
-  background: #F6F6F8;    /* shows if image missing */
-}
-
-/* Right side text */
-.project-name{
-  margin: 0 0 8px;
-  font-size: 26px;
-  line-height: 1.2;
-  color: var(--accent);         /* reference uses near-black titles */
-  font-weight: 650;
-}
-
-.project-preview{
-  margin: 0 0 14px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;            /* reference uses softer description */
-  max-width: 62ch;
-}
-
-/* Pills row */
-.project-actions{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-/* Default pill (if you don't add variants) */
-.pill{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 8px 12px;
-  border-radius: 999px;
-
-  background: #4B3B88;
-  color: #fff;
-  border: 0;
-
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.pill:hover{
-  opacity: 0.9;
-}
-
-/* Optional: Steven-like colored pills */
-.pill.blue{ background:#1f6feb; }
-.pill.orange{ background:#d97706; }
-.pill.green{ background:#16a34a; }
-
-/* “More details” should look like plain link text */
-.project-more summary{
-  list-style: none !important;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #4B3B88;
-  cursor: pointer;
-}
-
-.project-more summary::-webkit-details-marker{
-  display: none !important;
-}
-
-.project-more summary:hover{
   text-decoration: underline;
 }
 
-.project-details{
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #EEE;
-}
-
-.project-bullets{
+.story-bullet-list {
   margin: 0;
-  padding-left: 18px;
-  color: #444;
-  line-height: 1.65;
+  padding-left: 20px;
+  border-top: 1px solid var(--line);
 }
 
-/* Mobile: stack image above text */
-@media (max-width: 900px){
-  .project{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .project-thumbwrap{
-    width: 100%;
-  }
-  .project-thumb-img{
-    height: 180px;
-  }
+.story-bullet-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-/* ===== Projects: soft cards + hover lift (Steven-like) ===== */
-
-.projects-list{
-  display: flex;
-  flex-direction: column;
-  gap: 18px;              /* space between cards */
-  margin-top: 18px;
+.story-bullet-list li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.project{
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 24px;
-
-  padding: 20px 22px;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 0px;
-  background: #fff;
-
-  box-shadow: 0 10px 22px rgba(0,0,0,0.06);   /* soft base shadow */
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+.award-story {
+  margin-bottom: 0;
 }
 
-.project:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(0,0,0,0.10);   /* stronger hover shadow */
-  border-color: rgba(0,0,0,0.14);
-}
-
-.project-thumb-img{
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-
-  border-radius: 0px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #f3f3f6;
-}
-
-.project-name{
-  margin: 0 0 8px;
-  font-size: 26px;
-  line-height: 1.15;
+.award-badge {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--accent);
-  font-weight: 650;
 }
 
-.project-preview{
-  margin: 0 0 14px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-  max-width: 64ch;
+.footer-info {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.98rem;
+  color: var(--muted);
 }
 
-/* Make your purple pills feel a bit more “modern” */
-.pill{
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 24px 56px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .intro-blurb,
+  .about-blurb {
+    font-size: 1.08rem;
+  }
+}
+
+.featured-writing {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.featured-piece {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.featured-piece:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.featured-label {
+  margin: 0 0 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.featured-title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.featured-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.featured-title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.featured-summary {
+  margin: 10px 0 0;
+  max-width: 60ch;
+  color: #505050;
+  font-size: 1rem;
+}
+
+.featured-date {
+  margin: 10px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 8px;
+}
+
+.archive-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.archive-item a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.03rem;
+  line-height: 1.45;
+}
+
+.archive-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.archive-date {
+  margin: 8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.archive-note {
+  margin: 6px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.competition-block {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.competition-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.competition-meta {
+  margin: 8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.competition-summary {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  color: #505050;
+}
+
+.competition-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-title {
+    font-size: 1.35rem;
+  }
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 8px;
+}
+
+.archive-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.archive-item a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.archive-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.archive-date {
+  margin: 8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.archive-note {
+  margin: 6px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.archive-hidden {
+  display: none;
+}
+
+.archive-grid.expanded .archive-hidden {
+  display: block;
+}
+
+.archive-toggle-wrap {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.archive-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--accent);
   border-radius: 999px;
-
-  background: #4B3B88;
-  color: #fff;
-  border: 0;
-
-  font-size: 14px;
+  background: #fff;
+  color: var(--accent);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1;
-
-  transition: transform 140ms ease, opacity 140ms ease;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.pill:hover{
-  opacity: 0.92;
+.archive-toggle:hover {
+  background: var(--accent);
+  color: #fff;
   transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(75, 59, 136, 0.14);
 }
 
-/* Mobile stack */
-@media (max-width: 900px){
-  .project{
+.archive-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.archive-toggle-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+@media (max-width: 1000px) {
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .archive-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .project-thumb-img{
-    height: 190px;
   }
 }
 
-/* Underline the "All Stories" bulleted list */
-.story-bullet-list li a {
-    text-decoration: underline;
-    text-underline-offset: 0.5px;
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* try 8px to 14px */
+  background: #000;
 }
 
-/* Optional: Change the underline color on hover for a subtle effect */
-.story-bullet-list li a:hover {
-    text-decoration-thickness: 2px;
-    color: #6B5BA8; /* Your lighter purple hover color */
+.competition-block {
+  margin-top: 8px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--line);
 }
 
+.competition-title {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.competition-meta {
+  margin: 8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.competition-summary {
+  margin: 12px 0 0;
+  max-width: 64ch;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: #444;
+}
+
+.competition-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.competition-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
